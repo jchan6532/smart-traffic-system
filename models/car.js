@@ -17,7 +17,7 @@ class Car {
 
     update() {
 
-        // Vertical movement
+        // Update spped
         if (this.controls.forward) {
             this.speed += this.acceleration;
         }
@@ -42,18 +42,21 @@ class Car {
             this.speed = 0;
         }
 
-        this.y -= this.speed;
-
-
-        // Horizontal movement
-        if (this.controls.left) {
-            this.angle += 0.03;
+        // Update Angle
+        if (this.speed != 0) {
+            const flip = this.speed > 0 ? 1: -1;
+        
+            if (this.controls.left) {
+                this.angle += 0.03 * flip;
+            }
+            if (this.controls.right) {
+                this.angle -= 0.03 * flip;
+            }
         }
-        if (this.controls.right) {
-            this.angle -= 0.03;
-        }
-
-
+        
+        // Position displacement
+        this.x -= Math.sin(this.angle) * this.speed;
+        this.y -= Math.cos(this.angle) * this.speed;
     }
 
     draw(ctx) {
