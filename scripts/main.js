@@ -13,7 +13,7 @@ function animate() {
 
     map.height = window.innerHeight;
 
-    ctx.translate(-car.x + map.width*0.5, -car.y + map.height*0.8);
+    ctx.translate(0, -car.y + map.height*0.7);
     road.draw(ctx);
     car.draw(ctx);
     ctx.restore();
