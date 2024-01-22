@@ -26,7 +26,6 @@ class Controls {
                     this.reverse = true;
                     break;
             }
-            console.table(this);
         }
 
         // Arrow keys are released
@@ -45,7 +44,6 @@ class Controls {
                     this.reverse = false;
                     break;
             }
-            console.table(this);
         }
     }
 }
